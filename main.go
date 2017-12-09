@@ -61,7 +61,7 @@ import (
 
 var (
 	logFileName = flag.String("logfile", "~/log/ssh-guard.log", "logfile path")
-	cmds        = flag.String("allowd_commands", "", "Semi-colon separated list of allowed commads, use add and del to midify")
+	cmds        = flag.String("allowd_commands", "", "Colon separated list of allowed commads, use add / del / list")
 	addCMD      = flag.String("add", "", "add command")
 	delCMD      = flag.Int("del", 0, "del command")
 	listCMDS    = flag.Bool("list", false, "list all allowed comands")
