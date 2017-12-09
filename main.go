@@ -135,8 +135,6 @@ func cmdLine(conf *globalconf.GlobalConf) {
 		cmdLineList(conf)
 		os.Exit(0)
 	}
-
-	flag.Usage()
 }
 
 func main() {
@@ -170,6 +168,9 @@ func main() {
 	var allowedCMD string
 
 	for i := range allowed_cmds {
+		if allowed_cmds[i] == "" {
+			continue
+		}
 		if sshOrigCMD == allowed_cmds[i] {
 			allowed = true
 			allowedCMD = allowed_cmds[i]
