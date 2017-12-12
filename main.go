@@ -190,7 +190,7 @@ func main() {
 		cmd.Stderr = os.Stderr
 		err := cmd.Run()
 		if err != nil {
-			clog.Errorf("Error while Executing command: err: [ %s] cmd: [ %s] env: [ %s ]\n", err, allowedCMD, envStr)
+			clog.Errorf("Error while Executing command: err: [ %s ] cmd: [ %s ] env: [ %s ]\n", err, allowedCMD, envStr)
 			return
 		}
 		clog.Infof("Command finished: cmd: [ %s ] env: [ %s ]\n", allowedCMD, envStr)
