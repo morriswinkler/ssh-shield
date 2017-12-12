@@ -1,5 +1,5 @@
 /*
-Command ssh-shield is a simple too to manage allowed ssh commands via the authorized_keys command parameter.
+Command ssh-shield is a simple tool to manage allowed ssh commands via the authorized_keys command parameter.
 
 Install
 
@@ -62,7 +62,7 @@ import (
 
 var (
 	logFileName = flag.String("logfile", "~/ssh-shield.log", "logfile path")
-	cmds        = flag.String("allowd_commands", "", "Colon separated list of allowed commads, use add / del / list")
+	cmds        = flag.String("allowed_commands", "", "colon separated list of allowed commads, use add / del / list")
 	addCMD      = flag.String("add", "", "add command")
 	delCMD      = flag.Int("del", 0, "del command")
 	listCMDS    = flag.Bool("list", false, "list all allowed comands")
@@ -77,7 +77,7 @@ func cmdLineAdd(conf *globalconf.GlobalConf) {
 	list := strings.Split(*cmds, ";")
 	list = append(list, *addCMD)
 
-	cFlag := flag.Lookup("allowd_commands")
+	cFlag := flag.Lookup("allowed_commands")
 	err := cFlag.Value.Set(strings.Join(list, ":"))
 	if err != nil {
 		fmt.Println(err)
@@ -99,7 +99,7 @@ func cmdLineDel(conf *globalconf.GlobalConf) {
 
 	list = append(list[:*delCMD], list[*delCMD+1:]...)
 
-	cFlag := flag.Lookup("allowd_commands")
+	cFlag := flag.Lookup("allowed_commands")
 	err := cFlag.Value.Set(strings.Join(list, ":"))
 	if err != nil {
 		fmt.Println(err)
@@ -181,7 +181,7 @@ func main() {
 
 	if allowed {
 
-		clog.Infof("Executing allowd command: cmd: [ %s ] env: [ %s ]\n", allowedCMD, envStr)
+		clog.Infof("Executing allowed command: cmd: [ %s ] env: [ %s ]\n", allowedCMD, envStr)
 
 		argv := strings.Split(allowedCMD, " ")
 		cmd := exec.Command(argv[0], argv[1:]...)

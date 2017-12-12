@@ -1,6 +1,6 @@
 # ssh-shield
 --
-Command ssh-shield is a simple too to manage allowed ssh commands via the
+Command ssh-shield is a simple tool to manage allowed ssh commands via the
 authorized_keys command parameter.
 
 ### Install
